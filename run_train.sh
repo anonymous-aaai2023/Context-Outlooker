@@ -2,7 +2,7 @@
 
 for time in {1..1}
 do
-	python3 train_squad_en.py --model_type bert\
+	python3 train_squad_en_cool.py --model_type bert\
 	    	--model_name_or_path bert-base-cased\
 	    	--data_dir ./data/ \
       		--architecture global-to-local\
