@@ -1,3 +1,6 @@
+"""
+Refer to the VOLO implementations https://github.com/sail-sg/volo
+"""
 
 import torch
 import torch.nn as nn
