@@ -1,3 +1,6 @@
+"""
+The model with the convolutional block under the global-to-local architecture.
+"""
 
 #-*- coding: utf-8 -*-
 
@@ -24,13 +27,6 @@ from .outlook_conv import *
 
 
 class Global2Fine_Conv(nn.Module):
-
-
-    """
-    First adopt Bert LM to encode the global representations (get the features before performeding the QA task).
-    Then input the obtained global representations into Outlooker to further encode the local information.
-    Finally, execute the QA task.
-    """
 
     def __init__(self, model_name_or_path, config_name="", cache_dir="", embed_dims=768, seq_len = 384, num_layers=2, \
         downsamples=False, num_heads=1, out_kernel=(3,300), out_padding=1, out_stride=(2,300), mlp_ratios=3, \
