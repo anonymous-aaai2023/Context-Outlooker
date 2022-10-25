@@ -22,12 +22,6 @@ Others please refer to **requirements.txt**
 
 ### Extractive Question Answering
 
-### Question Generation
-
-Our experiments leverate ProphnetNet 
-Please go to the ```ProphetNet```
-
-
 Please run ```run_train.sh``` for model training.
 ```
 	python3 train_squad_en_cool.py --model_type bert\
@@ -49,3 +43,10 @@ Please run ```run_train.sh``` for model training.
 		--version_2_with_negative \
 		--max_seq_length 384
 ```
+
+### Question Generation
+
+Our experiments leverage ProphnetNet as the backbone, insert the proposed module to the encoder.
+Go to the directory of ```ProphetNet``` for details.
+
+
