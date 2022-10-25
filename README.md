@@ -28,6 +28,13 @@ Download the dataset and put them in ```./data/``` or ```./data_malay/```.
 - English SQuAD: [link](https://rajpurkar.github.io/SQuAD-explorer/)
 - Malay SQuAD by [malaya](https://malaya.readthedocs.io/en/latest/index.html): [link](https://github.com/huseinzol05/malay-dataset/tree/master/question-answer/squad)
 
+#### Pretrain Model
+We use the following pretrained models:
+- Bert: [link](https://huggingface.co/bert-base-cased)
+- Albert: [link](https://huggingface.co/albert-base-v2?text=The+goal+of+life+is+%5BMASK%5D.)
+- Roberta: [link](https://huggingface.co/roberta-base?text=The+goal+of+life+is+%3Cmask%3E.)
+- Malay Bert: [link](https://huggingface.co/malay-huggingface/bert-base-bahasa-cased)
+
 #### Model training
 Please run ```run_train.sh``` for model training.
 ```
