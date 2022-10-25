@@ -93,7 +93,7 @@ class Global2Fine_Sentence_Classification(nn.Module):
         self.reduce = nn.Linear(embed_dims,self.out_dim)
 
 
-        self.bert_pool = BertPooler(self.out_dim)
+        self.pool = Pooler(self.out_dim)
         self.dropout = nn.Dropout(0.1)
         self.classifier = nn.Linear(self.out_dim, self.num_labels)
 
@@ -252,7 +252,7 @@ class Global2Fine_Sentence_Classification(nn.Module):
         #output_layer_input = global_output+conved.squeeze(-1)
         output_layer_input = conved.squeeze(-1)
 
-        pooled_output = self.bert_pool(output_layer_input)
+        pooled_output = self.pool(output_layer_input)
         #pooled_output = torch.mean(conved.squeeze(-1),dim=1)
 
         pooled_output = self.dropout(pooled_output)
@@ -292,7 +292,7 @@ class Global2Fine_Sentence_Classification(nn.Module):
         )
 
 
-class BertPooler(nn.Module):
+class Pooler(nn.Module):
     def __init__(self,hidden_num):
         super().__init__()
         self.dense = nn.Linear(hidden_num,hidden_num)
