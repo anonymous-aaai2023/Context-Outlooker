@@ -1,6 +1,6 @@
 #! /bin/sh
 
-for time in {1..1}
+for time in {1..5}
 do
 	python3 train_squad_en_cool.py --model_type bert\
 	    	--model_name_or_path bert-base-cased\
