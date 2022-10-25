@@ -55,9 +55,6 @@ class Global2Fine_Sentence_Classification(nn.Module):
         #model_name_or_path = 'bert-large-cased'
 
         self.out_dim = n_filters*len(filter_sizes)
-
-        self.backbone_name = model_name_or_path
-
         self.config = AutoConfig.from_pretrained(
                                     config_name if config_name else model_name_or_path,
                                     cache_dir=cache_dir if cache_dir else None,
@@ -72,27 +69,6 @@ class Global2Fine_Sentence_Classification(nn.Module):
                                     config=self.config,
                                     cache_dir=cache_dir if cache_dir else None,
                                 )
-
-        #self.BERT_LM = nn.Sequential(*list(self.BERT_QA.children())[:-1])
-
-        #self.Outlooker = Outlooker(1) #1 is the number of the channel
-
-        '''
-        # set the main block in network
-        outlookers = []
-        for i in range(len(layers)):
-            if outlook_attention[i]:
-                # stage 1
-                stage = outlooker_blocks(Outlooker, i, embed_dims[i], layers,
-                                         downsample=downsamples[i], num_heads=num_heads[i],
-                                         kernel_size=out_kernel, stride=out_stride,
-                                         padding=out_padding, mlp_ratio=mlp_ratios[i],
-                                         qkv_bias=qkv_bias, qk_scale=qk_scale,
-                                         attn_drop=attn_drop_rate, norm_layer=norm_layer)
-                outlookers.append(stage)
-
-        self.outlookers = nn.ModuleList(outlookers)
-        '''
 
         self.convs = nn.ModuleList([
                     nn.Conv2d(in_channels = 1,
@@ -249,27 +225,16 @@ class Global2Fine_Sentence_Classification(nn.Module):
             else None
         )
 
-        if self.backbone_name == 'bert-base-cased' or self.backbone_name == 'albert-base-v2' :
-
-            outputs = self.backbone(
-                input_ids,
-                attention_mask=attention_mask,
-                token_type_ids=token_type_ids,
-                position_ids=position_ids,
-                head_mask=head_mask,
-                inputs_embeds=inputs_embeds,
-                output_hidden_states=True,
-            )
-
-        if self.backbone_name == 'microsoft/deberta-base': 
-            outputs = self.backbone(
-                input_ids,
-                attention_mask=attention_mask,
-                token_type_ids=token_type_ids,
-                position_ids=position_ids,
-                inputs_embeds=inputs_embeds,
-            )
-
+        outputs = self.backbone(
+            input_ids,
+            attention_mask=attention_mask,
+            token_type_ids=token_type_ids,
+            position_ids=position_ids,
+            head_mask=head_mask,
+            inputs_embeds=inputs_embeds,
+            output_hidden_states=True,
+        )
+            
         seq_len = outputs[0].size()[1]
         #outputs[0]: [B,384,768]
         #global_output = self.reduce(outputs[0])
