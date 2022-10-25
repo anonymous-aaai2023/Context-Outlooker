@@ -1,6 +1,13 @@
 # Context-Outlooker
 
-This is the anonymous uploading code for the submisstion of "COOL, a Context Outlooker, and its Application to Question Answering and other Natural Language Processing Tasks".
+This repo provides the anonymous uploading codes for the submisstion.
+We run the experiments for eleven NLP tasks, including
+- extractive question answering on SQuAD
+- multiple choice question answering on SWAG
+- question generation on SQuAD
+- Malay question answering on Malay SQuAD
+- natural language inference on GLUE
+- senmatic analysis on IMDB
 
 # Tips
 
