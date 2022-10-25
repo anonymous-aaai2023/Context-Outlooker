@@ -9,9 +9,26 @@ We run the experiments for eleven NLP tasks, including
 - natural language inference on GLUE
 - senmatic analysis on IMDB
 
-# Tips
+## Dependency
+Main:
+- python==3.7
+- torch==1.9.0
+- transformers=4.6.1
+- fairseq==v0.9.0 
 
-Please run ```run_train``` for model training.
+Others please refer to **requirements.txt**
+
+## Tasks
+
+### Extractive Question Answering
+
+### Question Generation
+
+Our experiments leverate ProphnetNet 
+Please go to the ```ProphetNet```
+
+
+Please run ```run_train.sh``` for model training.
 ```
 	python3 train_squad_en_cool.py --model_type bert\
 	    	--model_name_or_path bert-base-cased\
