@@ -36,7 +36,7 @@ class OutlookAttention(nn.Module):
         self.scale = qk_scale or head_dim**-0.5
 
         self.v = nn.Linear(dim, dim, bias=qkv_bias)
-        #self.attn = nn.Linear(dim, kernel_size**4 * num_heads)     byzfy
+        #self.attn = nn.Linear(dim, kernel_size**4 * num_heads)
         self.attn = nn.Linear(dim, kernel_size[0]*kernel_size[1]*kernel_size[0]* num_heads)
 
 
