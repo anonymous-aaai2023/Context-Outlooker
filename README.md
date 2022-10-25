@@ -22,6 +22,13 @@ Others please refer to **requirements.txt**
 
 ### Extractive Question Answering
 
+#### Data preparing
+
+Download the dataset and put them in ```./data/``` or ```./data_malay/```.
+- English SQuAD: [link](https://rajpurkar.github.io/SQuAD-explorer/)
+- Malay SQuAD by [malaya](https://malaya.readthedocs.io/en/latest/index.html): [link](https://github.com/huseinzol05/malay-dataset/tree/master/question-answer/squad)
+
+#### Model training
 Please run ```run_train.sh``` for model training.
 ```
 	python3 train_squad_en_cool.py --model_type bert\
@@ -47,7 +54,7 @@ Please run ```run_train.sh``` for model training.
 ### Question Generation
 
 Our experiments leverage ProphnetNet as the backbone, insert the proposed module to the encoder.
-Go to the directory of ```ProphetNet``` for details.
+Go to the directory of ```./ProphetNet/``` for details.
 
 
 ### P.S. We are organizing all the codes to provide more clear codes. Thanks for your consideration.
