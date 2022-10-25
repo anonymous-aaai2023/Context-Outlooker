@@ -50,4 +50,4 @@ Our experiments leverage ProphnetNet as the backbone, insert the proposed module
 Go to the directory of ```ProphetNet``` for details.
 
 
-### P.S. Will further organize and complete all the codes later. 
+### P.S. We are organizing all the codes to be more clear.
