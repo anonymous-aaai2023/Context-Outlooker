@@ -87,7 +87,7 @@ class Global2Fine_Multiple_Choice(nn.Module):
 
         self.outlookers = nn.ModuleList(self.outlooker_blocks)
 
-        self.bert_pool = BertPooler(self.out_dim)
+        self.pooler = BertPooler(self.out_dim)
         self.dropout = nn.Dropout(0.1)
         self.classifier = nn.Linear(self.out_dim, 1)
 
@@ -245,7 +245,7 @@ class Global2Fine_Multiple_Choice(nn.Module):
             conved = layer(conved)
 
         output_layer_input = global_output + conved.squeeze(-1)
-        pooled_output = self.bert_pool(output_layer_input)
+        pooled_output = self.pooler(output_layer_input)
         #pooled_output = torch.mean(conved.squeeze(-1),dim=1)
 
         pooled_output = self.dropout(pooled_output)
@@ -270,7 +270,7 @@ class Global2Fine_Multiple_Choice(nn.Module):
         )
 
 
-class BertPooler(nn.Module):
+class Pooler(nn.Module):
     def __init__(self,hidden_num):
         super().__init__()
         self.dense = nn.Linear(hidden_num,hidden_num)
