@@ -91,7 +91,7 @@ class Global2Fine_Token_Classification(nn.Module):
 
         #self.base_model_prefix ="bert"
 
-        #self.bert_pool = BertPooler(self.out_dim)
+        #self.pooler = Pooler(self.out_dim)
         self.dropout = nn.Dropout(0.1)
         self.classifier = nn.Linear(self.out_dim, self.num_labels)
 
@@ -278,7 +278,7 @@ class Global2Fine_Token_Classification(nn.Module):
             attentions=outputs.attentions,
         )
 
-class BertPooler(nn.Module):
+class Pooler(nn.Module):
     def __init__(self,hidden_num):
         super().__init__()
         self.dense = nn.Linear(hidden_num,hidden_num)
