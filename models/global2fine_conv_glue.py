@@ -51,9 +51,6 @@ class Global2Fine_Sentence_Classification(nn.Module):
         n_filters=100, filter_sizes=[3,4,5]):
 
         super().__init__()
-
-        #model_name_or_path = 'bert-large-cased'
-
         self.out_dim = n_filters*len(filter_sizes)
         self.config = AutoConfig.from_pretrained(
                                     config_name if config_name else model_name_or_path,
