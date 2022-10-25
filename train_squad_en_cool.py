@@ -50,11 +50,11 @@ from transformers.trainer_utils import is_main_process
 
 import sys
 sys.path.append('./models/')
-from models.global2fine_no_conv import *
-from models.global2fine_conv import *
-from models.fine2global_conv import *
-from models.fine2global_no_conv import *
-from models.global_and_fine import *
+from models.global2fine_qa_no_conv import *
+from models.global2fine_qa_conv import *
+# from models.fine2global_conv import *
+# from models.fine2global_no_conv import *
+# from models.global_and_fine import *
 
 
 try:
