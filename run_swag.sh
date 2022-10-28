@@ -5,7 +5,7 @@ python3 train_swag_cool.py\
 	--predict_file data/SWAG/val.csv \
 	--model_name_or_path bert-base-cased\
 	--event_record_dir runs/swag_cool\
-	--output_dir ~/saved/swag/bert-cool \
+	--output_dir saved/swag/bert-cool \
 	--do_train \
 	--do_eval \
 	--num_train_epochs 7 \
