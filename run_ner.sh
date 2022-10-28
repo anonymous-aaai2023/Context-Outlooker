@@ -1,4 +1,6 @@
-python train_ner.py \
+#! /bin/sh
+
+python train_ner_cool.py \
     --model_name_or_path roberta-base \
     --dataset_name conll2003 \
     --task_name ner \
