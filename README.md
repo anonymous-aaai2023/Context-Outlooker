@@ -36,7 +36,7 @@ We use the following pretrained models:
 - Malay Bert: [link](https://huggingface.co/malay-huggingface/bert-base-bahasa-cased)
 
 #### Model training
-Please run ```run_train.sh``` for model training.
+Run ```run_train.sh``` for model training.
 ```
 	python3 train_squad_en_cool.py --model_type bert\
 	    	--model_name_or_path bert-base-cased\
