@@ -92,6 +92,10 @@ Run `bash run_imdb.sh` for model training
 
 ### NER or POS Tagging
 
+#### Data Preparation
+
+We use [tensorflow dataset](https://www.tensorflow.org/datasets/catalog/conll2003)
+
 #### Model Training
 
 Run `bash run_ner.sh` for model training
