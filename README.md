@@ -73,6 +73,19 @@ Download the [SWAG](https://www.kaggle.com/datasets/jeromeblanchet/swag-nlp-data
 #### Model Training
 
 Run `bash run_swag.sh` for model training
+```
+python3 train_swag_cool.py\
+	--train_file data/SWAG/train.csv \
+	--predict_file data/SWAG/val.csv \
+	--model_name_or_path bert-base-cased\
+	--event_record_dir runs/swag_cool\
+	--output_dir saved/swag/bert-cool \
+	--do_train \
+	--do_eval \
+	--num_train_epochs 7 \
+	--evaluate_during_training \
+	--learning_rate 2e-5 \
+```
 
 ### Natural Language Inference
 
@@ -83,13 +96,35 @@ We use the [glue] dataset (https://www.tensorflow.org/datasets/catalog/glue).
 #### Model Training
 
 Run `bash run_glue.sh` for model training
+```
+export TASK_NAME=mnli
 
-#### Senmatic AnALYSIS
+python3 train_glue_cool.py \
+    --task_name $TASK_NAME\
+    --model_name_or_path roberta-base\
+    --output_dir saved/$TASK_NAME/roberta-cool\
+    --num_train_epochs 7\
+    --learning_rate 2e-5 \
+    --max_length 128 \
+    --learning_rate_conv 3e-5\
+    --num_outlook_layers 2\
+```
+#### Senmatic Analysis
 
 #### Model Training
 
 Run `bash run_imdb.sh` for model training
-
+```
+python3 train_imdb_cool.py \
+    --task_name imdb\
+    --model_name_or_path roberta-base\
+    --output_dir saved/imdb/roberta-cool\
+    --num_train_epochs 7\
+    --learning_rate 2e-5 \
+    --max_length 128 \
+    --learning_rate_conv 3e-5\
+    --num_outlook_layers 2\
+```
 ### NER or POS Tagging
 
 #### Data Preparation
@@ -99,6 +134,17 @@ We use the [conll2003] dataset (https://www.tensorflow.org/datasets/catalog/conl
 #### Model Training
 
 Run `bash run_ner.sh` for model training
-
+```
+python train_ner_cool.py \
+    --model_name_or_path roberta-base \
+    --dataset_name conll2003 \
+    --task_name ner \
+    --max_length 128 \
+    --per_device_train_batch_size 32 \
+    --learning_rate 5e-5 \
+    --num_train_epochs 5 \
+    --output_dir saved/ner/roberta/ \
+    --gpu 0\
+```
 
 ### P.S. We will further organize all the codes. Appreciate for your consideration.
