@@ -22,7 +22,7 @@ Others please refer to **requirements.txt**
 
 ### Extractive Question Answering
 
-#### Data preparing
+#### Data Preparation
 
 Download the dataset and put them in ```./data/``` or ```./data_malay/```.
 - English SQuAD: [link](https://rajpurkar.github.io/SQuAD-explorer/)
@@ -64,5 +64,31 @@ We leverage [ProphnetNet](https://github.com/microsoft/ProphetNet) as the backbo
 
 Go to the directory of ```./ProphetNet/``` for details.
 
+### Multiple Choice Question Answering
 
-### P.S. We are organizing all the codes to provide more clear codes. Thanks for your consideration.
+#### Data Preparation
+
+Download the [SWAG](https://www.kaggle.com/datasets/jeromeblanchet/swag-nlp-dataset) dataset.
+
+#### Model Training
+
+Run `bash run_swag.sh` for model training
+
+### Natural Language Inference
+
+#### Data Preparation
+
+We use [tensorflow dataset](https://www.tensorflow.org/datasets/catalog/glue)
+
+#### Model Training
+
+Run `bash run_glue.sh` for model training
+
+#### Senmatic AnALYSIS
+
+#### Model Training
+
+Run `bash run_imdb.sh` for model training
+
+
+### P.S. We will further organize all the codes. Appreciate for your consideration.
