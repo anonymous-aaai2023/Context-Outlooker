@@ -1,9 +1,11 @@
 #! /bin/sh
 
-python3 train_imdb_cool.py \
-    --task_name imdb\
+export TASK_NAME=mnli
+
+python3 train_glue_cool.py \
+    --task_name $TASK_NAME\
     --model_name_or_path roberta-base\
-    --output_dir saved/imdb/roberta-cool\
+    --output_dir saved/$TASK_NAME/roberta-cool\
     --num_train_epochs 7\
     --learning_rate 2e-5 \
     --max_length 128 \
