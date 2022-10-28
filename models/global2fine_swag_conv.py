@@ -238,7 +238,7 @@ class Global2Fine_Multiple_Choice(nn.Module):
                 inputs_embeds=inputs_embeds,
             )
 
-        if self.model_type == 'deberta-base': 
+        if self.model_type == 'deberta': 
             outputs = self.backbone(
                 input_ids,
                 attention_mask=attention_mask,
@@ -246,6 +246,16 @@ class Global2Fine_Multiple_Choice(nn.Module):
                 position_ids=position_ids,
                 inputs_embeds=inputs_embeds,
             )
+            
+        if self.model_type == 'roberta':
+            outputs = self.backbone(
+                input_ids,
+                attention_mask=attention_mask,
+                position_ids=position_ids,
+                head_mask=head_mask,
+                inputs_embeds=inputs_embeds,
+            )
+
 
         #global_output = self.reduce(outputs[0])
         global_output = outputs[0]
