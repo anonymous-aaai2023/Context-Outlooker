@@ -90,5 +90,11 @@ Run `bash run_glue.sh` for model training
 
 Run `bash run_imdb.sh` for model training
 
+### NER or POS Tagging
+
+#### Model Training
+
+Run `bash run_ner.sh` for model training
+
 
 ### P.S. We will further organize all the codes. Appreciate for your consideration.
