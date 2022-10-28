@@ -9,8 +9,6 @@ import torch.nn.functional as F
 import math
 import numpy as np
 
-from timm.models.layers import DropPath, to_2tuple, trunc_normal_
-
 class OutlookAttention(nn.Module):
     """
     Implementation of outlook attention
