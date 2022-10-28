@@ -8,5 +8,5 @@ python train_ner_cool.py \
     --per_device_train_batch_size 32 \
     --learning_rate 5e-5 \
     --num_train_epochs 5 \
-    --output_dir ~/saved/ner/roberta/ \
+    --output_dir saved/ner/roberta/ \
     --gpu 0\
