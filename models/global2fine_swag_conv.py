@@ -45,18 +45,14 @@ class Global2Fine_Multiple_Choice(nn.Module):
     Finally, execute the QA task.
     """
 
-    def __init__(self, model_name_or_path, model_type, config_name="", cache_dir="", embed_dims=768, seq_len = 384, num_layers=4, \
+    def __init__(self, model_name_or_path, config_name="", cache_dir="", embed_dims=768, seq_len = 384, num_layers=4, \
         downsamples=False, num_heads=1, out_kernel=(3,300), out_padding=1, out_stride=(1,300), mlp_ratios=3, \
         qkv_bias=False, qk_scale=False, attn_drop_rate=0., norm_layer=nn.LayerNorm, outlook_attention=True, \
         n_filters=256, filter_sizes=[3,4,5]):
 
         super().__init__()
 
-        #model_name_or_path = 'bert-large-cased'
-
         self.out_dim = n_filters*len(filter_sizes)
-
-        self.model_typ = model_type
 
         self.config = AutoConfig.from_pretrained(
                                     config_name if config_name else model_name_or_path,
@@ -227,34 +223,14 @@ class Global2Fine_Multiple_Choice(nn.Module):
         )
 
 
-        if self.model_type == 'bert' or self.model_type == 'albert' :
-
-            outputs = self.backbone(
-                input_ids,
-                attention_mask=attention_mask,
-                token_type_ids=token_type_ids,
-                position_ids=position_ids,
-                head_mask=head_mask,
-                inputs_embeds=inputs_embeds,
-            )
-
-        if self.model_type == 'deberta': 
-            outputs = self.backbone(
-                input_ids,
-                attention_mask=attention_mask,
-                token_type_ids=token_type_ids,
-                position_ids=position_ids,
-                inputs_embeds=inputs_embeds,
-            )
-            
-        if self.model_type == 'roberta':
-            outputs = self.backbone(
-                input_ids,
-                attention_mask=attention_mask,
-                position_ids=position_ids,
-                head_mask=head_mask,
-                inputs_embeds=inputs_embeds,
-            )
+        outputs = self.backbone(
+            input_ids,
+            attention_mask=attention_mask,
+            token_type_ids=token_type_ids,
+            position_ids=position_ids,
+            head_mask=head_mask,
+            inputs_embeds=inputs_embeds,
+        )
 
 
         #global_output = self.reduce(outputs[0])
