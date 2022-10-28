@@ -54,8 +54,6 @@ class Global2Fine_Sentence_Classification(nn.Module):
 
         self.out_dim = n_filters*len(filter_sizes)
 
-        self.backbone_name = model_name_or_path
-
         self.config = AutoConfig.from_pretrained(
                                     config_name if config_name else model_name_or_path,
                                     cache_dir=cache_dir if cache_dir else None,
