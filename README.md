@@ -78,7 +78,7 @@ Run `bash run_swag.sh` for model training
 
 #### Data Preparation
 
-We use [tensorflow dataset](https://www.tensorflow.org/datasets/catalog/glue)
+We use the [glue] dataset (https://www.tensorflow.org/datasets/catalog/glue).
 
 #### Model Training
 
@@ -94,7 +94,7 @@ Run `bash run_imdb.sh` for model training
 
 #### Data Preparation
 
-We use [tensorflow dataset](https://www.tensorflow.org/datasets/catalog/conll2003)
+We use the [conll2003] dataset (https://www.tensorflow.org/datasets/catalog/conll2003) from tensorflow dataset.
 
 #### Model Training
 
