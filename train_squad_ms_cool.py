@@ -692,7 +692,7 @@ def main():
     parser.add_argument(
         "--overwrite_cache", action="store_true", help="Overwrite the cached training and evaluation sets"
     )
-    parser.add_argument("--seed", type=int, default=42, help="random seed for initialization")
+    parser.add_argument("--seed", type=int, default=None, help="random seed for initialization")
 
     parser.add_argument("--local_rank", type=int, default=-1, help="local_rank for distributed training on gpus")
     parser.add_argument(
