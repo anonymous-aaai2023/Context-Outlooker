@@ -147,4 +147,4 @@ python train_ner_cool.py \
     --gpu 0\
 ```
 
-### P.S. We will further organize all the codes. Appreciate for your consideration.
+### P.S. We will further organize all the codes. Appreciate for your consideration and time.
